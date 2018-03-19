@@ -63,14 +63,11 @@ public class Main {
             //установить setAge
             if (worker.getAge() > AGE_LIMIT) {
                 // Мы вызываем метод worker.workerInfo()); из Worker (другого класса), мы находимся в классе Main,
-                //
-                //
-                //
-                System.out.println("Сотрудник старше 40 лет: " + worker.workerInfo());
+                System.out.println("Сотрудник старше " + AGE_LIMIT + " лет: " + worker.workerInfo());
             } else if (worker.getAge() == AGE_LIMIT){
-                System.out.println("Сотруднику 40 лет: " + worker.workerInfo());
+                System.out.println("Сотруднику " + AGE_LIMIT + " лет: " + worker.workerInfo());
             } else {
-                System.out.println("Сотрудник младше 40 лет: " + worker.workerInfo());
+                System.out.println("Сотрудник младше " + AGE_LIMIT + " лет: " + worker.workerInfo());
                 //System.out.println(MessageFormat.format(pattern, worker.getFullName(), worker.getPosition(), worker.getEmail(), worker.getPhone(), worker.getSalary(), worker.getAge()));
             }
         }
