@@ -2,8 +2,12 @@ package ru.foxit.grayfox;
 
 import java.text.MessageFormat;
 
-// Класс
+// это Класс
 public class Worker {
+
+    // todo | Комментарии пишу исключительно для себя, хочу понять, как все работает. Писать, что отпадает возможность
+    // todo | исключать комментарии не обязательно.
+
 //    * Создать класс "Сотрудник" с полями: ФИО, должность, email, телефон, зарплата, возраст;
 //    * Конструктор класса должен заполнять эти поля при создании объекта;
 //    * Внутри класса «Сотрудник» написать метод, который выводит информацию об объекте в консоль;
@@ -18,17 +22,19 @@ public class Worker {
 //
 //    * С помощью цикла вывести информацию только о сотрудниках старше 40 лет;
 
-    // Поля класса
+    // Поля класса | объекты
     private String fullName; // Ф.И.О.
     private String position; // Должность
     private String email; // емаил
     private String phone; // Телефон
     private int salary; // Зарплата
     private int age; // Возраст
-    final String pattern = "fullName: {0}, position: {1}, email: {2}, phone: {3}, salary: {4}, age: {5}";
 
 
+    // Конструктор
     public Worker(String fullName, String position, String email, String phone, int salary, int age) {
+        // this. обращаемся к переменным этого же класса.
+        // this. Стучимся к самому классу Worker и его поле fullName
         this.fullName = fullName;
         this.position = position;
         this.email = email;
@@ -37,14 +43,17 @@ public class Worker {
         this.age = age;
     }
 
+    // это метод
+    public String workerInfo() {
+        String pattern = "fullName: {0}, position: {1}, email: {2}, phone: {3}, salary: {4}, age: {5}";
+        return MessageFormat.format(pattern, this.fullName, this.position, this.email, this.phone, this.salary, this.age);
+    }
 
     // Главная задача геттеров и сеттеров - не обращаться к переменным класса напрямую. Нужно обращаться через методы.
     // Для маленьких программ это не нужно, однако для больших программ это критично.
     // Ты можешь прочесть и записать, а сама переменная не нужна, надо управлять поведением, объектами.
+    // todo | Однако, почему нельзя обращаться к переменным на прямую, чем это грозит - не совсем понял!
 
-    public String workerInfo() {
-        return MessageFormat.format(pattern, this.fullName, this.position, this.email, this.phone, this.salary, this.age);
-    }
     // Получить
     public String getFullName() {
         return fullName;
@@ -54,14 +63,17 @@ public class Worker {
         this.fullName = fullName;
     }
 
+    // Получить
     public String getPosition() {
         return position;
     }
 
+    // Установить
     public void setPosition(String position) {
         this.position = position;
     }
 
+    // и т д
     public String getEmail() {
         return email;
     }
@@ -70,6 +82,7 @@ public class Worker {
         this.email = email;
     }
 
+    // А если сделать private String getPhone - то вообще смысла от геттера нету.
     public String getPhone() {
         return phone;
     }
@@ -97,4 +110,6 @@ public class Worker {
     public void setAge(int age) {
         this.age = age;
     }
+
+
 }
